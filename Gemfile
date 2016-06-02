@@ -18,6 +18,8 @@ gem "devise"
 
 gem 'pg'
 
+gem 'validates_email_format_of'
+
 group :test do
   gem "rspec-rails", "~> 3.1"
   gem "factory_girl_rails"

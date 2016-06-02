@@ -154,6 +154,8 @@ GEM
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     unicode-display_width (1.0.5)
+    validates_email_format_of (1.6.3)
+      i18n
     warden (1.2.6)
       rack (>= 1.0)
 
@@ -174,6 +176,7 @@ DEPENDENCIES
   rubocop
   shoulda-matchers
   spring
+  validates_email_format_of
 
 RUBY VERSION
    ruby 2.2.2p95
