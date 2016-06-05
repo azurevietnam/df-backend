@@ -38,6 +38,25 @@ class OrdersController < ApplicationController
       render json: {errors: 'some parameters are missed'}, status: :unprocessable_entity
     end
   end
+  
+  def show
+    order = Order.includes(:passengers).find(params[:id])
+    render json: order.to_json(include: :passengers), status: :ok
+  end
+  
+  def find
+    order = Order.includes(:passengers).find_by!(order_number: params[:order_number])
+    render json: order.to_json(include: :passengers), status: :ok
+  end
+  
+  def generate_order_number
+    order_no = nil
+    loop do
+      order_no = SecureRandom.hex(16/4).upcase
+      break unless Order.exists?(:order_number => order_no)
+    end
+    return order_no
+  end
 
   private
     def order_creation_params
@@ -65,14 +84,6 @@ class OrdersController < ApplicationController
         end
       end
       return customer
-    end
-    def generate_order_number
-      order_no = nil
-      loop do
-        order_no = SecureRandom.hex(16/4).upcase
-        break unless Order.exists?(:order_number => order_no)
-      end
-      return order_no
     end
     def is_round_trip(round_type)
       return round_type == 2

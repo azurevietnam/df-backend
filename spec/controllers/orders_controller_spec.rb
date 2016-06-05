@@ -176,11 +176,76 @@ RSpec.describe OrdersController, type: :controller do
         }
         @order_response = json_response
       end
-      it "renders an errors json" do
+      it "return an errors json" do
         expect(@order_response).to have_key(:errors)
       end
-      it "renders the json errors on why the order cannot be created" do
+      it "return the json errors on why the order cannot be created" do
         expect(@order_response[:errors]).to include "some parameters are missed"
+      end
+    end
+  end
+  
+  describe "SHOW #get" do
+    context "when order can get from its id" do
+      before(:each) do
+        @order = FactoryGirl.create(:order)
+        @passenger = FactoryGirl.create(:male_adult, order_id: @order.id)
+        get :show, id: @order.id
+        
+        @order_response = json_response
+      end
+      
+      it "return correct order by id" do
+        expect(@order_response[:id]).to eql @order.id
+      end
+      
+      it "contains list passengers belongs to order" do
+        expect(@order_response[:passengers][0][:name]).to eql @passenger.name
+      end
+      
+      it {should respond_with :ok}
+    end
+    
+    context "when order cannot found from its id" do
+      before(:each) do
+        get :show, id: -1
+        
+        @order_response = json_response
+      end
+      it "return an errors json" do
+        expect(@order_response).to have_key(:errors)
+      end
+      it "return message order cannot find" do
+        expect(@order_response[:errors]).to include "Couldn't find"
+      end
+    end
+  end
+  
+  describe "FIND #find" do
+    context "when found order from its order number" do
+      before(:each) do
+        @order = FactoryGirl.create(:order)
+        get :find, order_number: @order.order_number
+        
+        @order_response = json_response
+      end
+      
+      it "return correct order by order number" do
+        expect(@order_response[:id]).to eql @order.id
+      end      
+    end
+    
+    context "when cannot found order from its order number" do
+      before(:each) do
+        get :find, order_number: "CANNOT_HAVE_THIS_ORDER_NUMBER"
+        
+        @order_response = json_response
+      end
+      it "return an errors json" do
+        expect(@order_response).to have_key(:errors)
+      end
+      it "return message order cannot find" do
+        expect(@order_response[:errors]).to include "Couldn't find"
       end
     end
   end
