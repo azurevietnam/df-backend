@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160602141307) do
+ActiveRecord::Schema.define(version: 20160605080240) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "airlines", force: :cascade do |t|
-    t.integer  "type"
+    t.integer  "category"
     t.string   "name"
     t.string   "short_name"
     t.datetime "created_at", null: false
@@ -28,22 +28,9 @@ ActiveRecord::Schema.define(version: 20160602141307) do
     t.string   "name",       null: false
     t.string   "phone",      null: false
     t.string   "email"
-    t.boolean  "gender"
+    t.integer  "gender"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "order_paxes", force: :cascade do |t|
-    t.integer  "order_id"
-    t.integer  "no"
-    t.string   "name"
-    t.boolean  "gender"
-    t.integer  "type"
-    t.date     "birth"
-    t.integer  "depart_lug_weight"
-    t.integer  "return_lug_weight"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
   end
 
   create_table "orders", force: :cascade do |t|
@@ -86,6 +73,31 @@ ActiveRecord::Schema.define(version: 20160602141307) do
     t.integer  "return_web_price_net",      default: 0
     t.integer  "return_total",              default: 0
     t.integer  "total_price",               default: 0
+    t.integer  "contact_gender"
+    t.text     "contact_note"
+    t.text     "admin_note"
+    t.integer  "ori_place_id"
+    t.integer  "des_place_id"
+    t.integer  "depart_airline_id"
+    t.integer  "return_airline_id"
+    t.string   "ori_short_name"
+    t.string   "des_short_name"
+    t.datetime "depart_expired"
+    t.datetime "return_expired"
+    t.datetime "time_expired"
+  end
+
+  create_table "passengers", force: :cascade do |t|
+    t.integer  "order_id"
+    t.integer  "no"
+    t.string   "name"
+    t.integer  "gender"
+    t.integer  "category"
+    t.date     "birth"
+    t.integer  "depart_lug_weight"
+    t.integer  "return_lug_weight"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "places", force: :cascade do |t|
@@ -93,9 +105,9 @@ ActiveRecord::Schema.define(version: 20160602141307) do
     t.string   "name"
     t.string   "name_unsigned"
     t.boolean  "is_domestic"
-    t.boolean  "available"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "short_name"
   end
 
   create_table "routes", force: :cascade do |t|
