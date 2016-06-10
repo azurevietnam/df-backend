@@ -15,10 +15,10 @@ RSpec.describe OrdersController, type: :controller do
 
     before(:each) do
       @customer = FactoryGirl.create(:customer)
-      @ori_place = FactoryGirl.create(:place, code: 'BMV', name: 'Buôn Ma Thuột', name_unsigned: 'Buon Ma Thuot', is_domestic: 1, short_name: 'BMT')
-      @des_place = FactoryGirl.create(:place, code: 'SGN', name: 'Hồ Chí Minh', name_unsigned: 'Ho Chi Minh', is_domestic: 1, short_name: 'HCM')
-      @depart_airline = FactoryGirl.create(:airline, category: Airline.CATEGORies[:VNAIRLINE], name: "Vietnam Airline", short_name: "VNAirline")
-      @return_airline = FactoryGirl.create(:airline, category: Airline.CATEGORies[:JETSTAR], name: "Jetstar", short_name: "Jetstar")
+      @ori_place = FactoryGirl.create(:place_bmt)
+      @des_place = FactoryGirl.create(:place_sgn)
+      @depart_airline = FactoryGirl.create(:airline_vna)
+      @return_airline = FactoryGirl.create(:airline_jet)
     end
 
     context "when create order round trip successfully" do
@@ -189,7 +189,6 @@ RSpec.describe OrdersController, type: :controller do
     context "when order can get from its id" do
       before(:each) do
         @order = FactoryGirl.create(:order)
-        @passenger = FactoryGirl.create(:male_adult, order_id: @order.id)
         get :show, id: @order.id
         
         @order_response = json_response
@@ -197,10 +196,6 @@ RSpec.describe OrdersController, type: :controller do
       
       it "return correct order by id" do
         expect(@order_response[:id]).to eql @order.id
-      end
-      
-      it "contains list passengers belongs to order" do
-        expect(@order_response[:passengers][0][:name]).to eql @passenger.name
       end
       
       it {should respond_with :ok}

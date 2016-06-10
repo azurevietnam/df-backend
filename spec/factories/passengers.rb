@@ -4,43 +4,29 @@ FactoryGirl.define do
   end
 
   factory :passenger do
+    order
+    
+    no
     name { FFaker::Name.name }
     depart_lug_weight 0
-    return_lug_weight 0
-
-    factory(:male_adult) do
-      category Passenger.CATEGORies[:ADULT]
+    return_lug_weight 15
+    gender { [Customer.GENDERs[:MALE], Customer.GENDERs[:FEMALE]].sample }
+    
+    trait :male do
       gender Customer.GENDERs[:MALE]
-      birth "20/07/1992"
     end
-
-    factory(:female_adult) do
-      category Passenger.CATEGORies[:ADULT]
-      gender Customer.GENDERs[:FEMALE]
-      birth "15/09/1991"
+    trait :female do
+      gender Customer.GENDERs[:FEMALE]  
     end
-
-    factory(:male_child) do
+    trait :adult do
+      category Passenger.CATEGORies[:ADULT]      
+    end
+    trait :child do
       category Passenger.CATEGORies[:CHILD]
-      gender Customer.GENDERs[:MALE]
       birth "20/07/2010"
     end
-
-    factory(:female_child) do
-      category Passenger.CATEGORies[:CHILD]
-      gender Customer.GENDERs[:FEMALE]
-      birth "20/07/2011"
-    end
-
-    factory(:male_infant) do
+    trait :infant do
       category Passenger.CATEGORies[:INFANT]
-      gender Customer.GENDERs[:MALE]
-      birth "20/07/2015"
-    end
-
-    factory(:female_infant) do
-      category Passenger.CATEGORies[:INFANT]
-      gender Customer.GENDERs[:FEMALE]
       birth "20/07/2015"
     end
   end

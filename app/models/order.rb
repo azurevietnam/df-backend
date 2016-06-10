@@ -1,4 +1,5 @@
 class Order < ActiveRecord::Base
+  
   validates :order_number, presence: true
   validates :order_number, uniqueness: true
   validates_email_format_of :contact_email, :message => 'is not looking good'
@@ -15,4 +16,12 @@ class Order < ActiveRecord::Base
 
   enum STATUS: {CANCEL: 0, NEW: 1, RESERVED: 2, DONE: 3}
   enum ROUND_TYPE: {ONE_WAY: 1, ROUND_TRIP: 2}
+  
+  def send_reservation_email
+    EmailOrder.reservation_order(self).deliver_now
+  end
+  
+  def send_exported_email
+    EmailOrder.exported_order(self).deliver_now
+  end
 end

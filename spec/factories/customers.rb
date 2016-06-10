@@ -1,6 +1,6 @@
 FactoryGirl.define do
   sequence :phone do |n|
-    FFaker::PhoneNumber.subscriber_number(10)
+    # FFaker::PhoneNumber.subscriber_number(10)
   end
   sequence :email do |n|
     FFaker::Internet.email
@@ -8,8 +8,15 @@ FactoryGirl.define do
 
   factory :customer do
     name { FFaker::Name.name }
-    phone "01224410620"
+    phone "01223344509"
     email
-    gender 1
+    gender { [Customer.GENDERs[:MALE], Customer.GENDERs[:FEMALE]].sample }
+    trait :male do
+      gender Customer.GENDERs[:MALE]      
+    end
+    trait :female do
+      gender Customer.GENDERs[:FEMALE]
+    end
+    
   end
 end

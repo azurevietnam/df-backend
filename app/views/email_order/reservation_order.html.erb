@@ -1,0 +1,815 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title></title>
+      <style type="text/css">
+         #outlook a { padding: 0; }
+         .ReadMsgBody { width: 100%; }
+         .ExternalClass { width: 100%; }
+         .ExternalClass * { line-height:100%; }
+         body { margin: 0; padding: 0; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+         table, td { border-collapse:collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+         img { border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; }
+         p { display: block; margin: 13px 0; }
+      </style>
+      <!--[if !mso]><!-->
+      <style type="text/css">
+         @import url(https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700);
+      </style>
+      <style type="text/css">
+         @media only screen and (max-width:480px) {
+         @-ms-viewport { width:320px; }
+         @viewport { width:320px; }
+         }
+      </style>
+      <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700" rel="stylesheet" type="text/css">
+      <!--<![endif]-->
+      <style type="text/css">
+         @media only screen and (min-width:480px) {
+         .mj-column-per-50, * [aria-labelledby="mj-column-per-50"] { width:50%!important; }
+         .mj-column-per-100, * [aria-labelledby="mj-column-per-100"] { width:100%!important; }
+         }
+      </style>
+   </head>
+   <body style="background: #d6dde5;">
+      <div style="background-color:#d6dde5;font-size:13px;">
+         <!--[if mso]>
+         <table border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+            <tr>
+               <td>
+         <![endif]-->
+                  <div style="margin:0 auto;max-width:600px;background:#ffffff;">
+                     <table cellpadding="0" cellspacing="0" style="font-size:0;width:100%;background:#ffffff;" align="center" border="0">
+                        <tbody>
+                           <tr>
+                              <td style="text-align:center;vertical-align:top;font-size:0;padding:0 0 0 0;">
+                                 <!--[if mso]>
+                                 <table border="0" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                       <td style="vertical-align:top;width:300px;">
+                                 <![endif]-->
+                                          <div aria-labelledby="mj-column-per-50" class="mj-column-per-50" style="vertical-align:top;display:inline-block;font-size:13px;text-align:left;width:100%;">
+                                             <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                                                <tbody>
+                                                   <tr>
+                                                      <td style="word-break:break-word;font-size:0;padding:6px 25px 0 25px;padding-top:6px;padding-right:25px;padding-left:25px;" align="left">
+                                                         <div style="cursor:auto;color:#000000;font-family:open sans, Helvetica, Arial, sans-serif;font-size:13px;line-height:22px;">
+                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif"><span style="font-size:25px"><span style="color:#2196F3">Dona Sky</span></span></span></p>
+                                                         </div>
+                                                      </td>
+                                                   </tr>
+                                                </tbody>
+                                             </table>
+                                          </div>
+                                       <!--[if mso]>
+                                       </td>
+                                       <td style="vertical-align:top;width:300px;">
+                                       <![endif]-->
+                                          <div aria-labelledby="mj-column-per-50" class="mj-column-per-50" style="vertical-align:top;display:inline-block;font-size:13px;text-align:left;width:100%;">
+                                             <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                                                <tbody>
+                                                   <tr>
+                                                      <td style="word-break:break-word;font-size:0;padding:5px 25px 0 25px;padding-top:5px;padding-right:25px;padding-left:25px;" align="left">
+                                                         <div style="cursor:auto;color:#000000;font-family:open sans, Helvetica, Arial, sans-serif;font-size:13px;line-height:8px;">
+                                                            <p><span style="color:#FF5252"><span style="font-size:15px"><b><span style="font-family:arial,sans-serif">GIỮ CHỖ TẠM THỜI</span></b></span></span></p>
+                                                            <p><span style="color:#212121"><span style="font-size:12px"><span style="font-family:open sans,helvetica,arial,sans-serif">Hạn giữ chỗ: <%= Helper::DateFormatter.format_date_time(@order.time_expired) %></span></span></span></p>
+                                                         </div>
+                                                      </td>
+                                                   </tr>
+                                                </tbody>
+                                             </table>
+                                          </div>
+                                 <!--[if mso]>
+                                       </td>
+                                    </tr>
+                                 </table>
+                                 <![endif]-->
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+         <!--[if mso]>
+               </td>
+            </tr>
+         </table>
+         <![endif]-->
+         <!--[if mso]>
+         <table border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+            <tr>
+               <td>
+          <![endif]-->
+                  <div style="margin:0 auto;max-width:600px;">
+                     <table cellpadding="0" cellspacing="0" style="font-size:0;width:100%;" align="center" border="0">
+                        <tbody>
+                           <tr>
+                              <td style="text-align:center;vertical-align:top;font-size:0;padding:0 0 0 0;">
+                                 <!--[if mso]>
+                                 <table border="0" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                       <td style="vertical-align:top;width:600px;">
+                                 <![endif]-->
+                                          <div aria-labelledby="mj-column-per-100" class="mj-column-per-100" style="vertical-align:top;display:inline-block;font-size:13px;text-align:left;width:100%;">
+                                             <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                                                <tbody>
+                                                   <tr>
+                                                      <td style="word-break:break-word;background:#2196F3;font-size:0;padding:0 25px 0 25px;padding-right:25px;padding-left:25px;" align="left" background="#2196F3">
+                                                         <div style="cursor:auto;color:#000000;font-family:open sans, Helvetica, Arial, sans-serif;font-size:13px;line-height:15px;">
+                                                            <p><span style="color:#FFFFFF"><span style="font-family:open sans,helvetica,arial,sans-serif">Xin chào <b><%= Customer::Title.show(@order.contact_gender) %>. <%= @order.contact_name %></b>,</span></span></p>
+                                                            <p><span style="color:#FFFFFF"><span style="font-family:open sans,helvetica,arial,sans-serif">Vé máy bay của quý khách đã được GIỮ CHỖ. Vui lòng kiểm tra kĩ thông tin hành trình bay và thông tin hành khách trên chuyến bay.</span></span></p>
+                                                            <p><span style="color:#FFFFFF"><span style="font-family:open sans,helvetica,arial,sans-serif">Quý khách vui lòng thanh toán bằng hình thức chuyển khoản trước thời gian hết hạn giữ chỗ. Xem thông tin các ngân hàng hỗ trợ bên dưới.</span></span></p>
+                                                         </div>
+                                                      </td>
+                                                   </tr>
+                                                </tbody>
+                                             </table>
+                                          </div>
+                                 <!--[if mso]>
+                                       </td>
+                                    </tr>
+                                 </table>
+                                 <![endif]-->
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+         <!--[if mso]>
+               </td>
+            </tr>
+         </table>
+         <![endif]-->
+         <!--[if mso]>
+         <table border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+            <tr>
+               <td>
+         <![endif]-->
+                  <div style="margin:0 auto;max-width:600px;">
+                     <table cellpadding="0" cellspacing="0" style="font-size:0;width:100%;" align="center" border="0">
+                        <tbody>
+                           <tr>
+                              <td style="text-align:center;vertical-align:top;font-size:0;padding:0 0 0 0;">
+                                 <!--[if mso]>
+                                 <table border="0" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                       <td style="vertical-align:top;width:600px;">
+                                 <![endif]-->
+                                          <div aria-labelledby="mj-column-per-100" class="mj-column-per-100" style="vertical-align:top;display:inline-block;font-size:13px;text-align:left;width:100%;">
+                                             <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                                                <tbody>
+                                                   <tr>
+                                                      <td style="word-break:break-word;background:#ffffff;font-size:0;padding:0 25px 0 25px;padding-right:25px;padding-left:25px;" align="left" background="#ffffff">
+                                                         <div style="cursor:auto;color:#000000;font-family:open sans, Helvetica, Arial, sans-serif;font-size:13px;line-height:5px;">
+                                                            <h3><span style="color:#0d2c54"><span style="font-size:13px"><span style="font-family:open sans,helvetica,arial,sans-serif">Thông tin chuyến bay</span></span></span></h3>
+                                                         </div>
+                                                      </td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td style="word-break:break-word;background:#ffffff;font-size:0;padding:10px 25px;" background="#ffffff">
+                                                         <p style="font-size:1px;margin:0 auto;border-top:1px solid #0099f2;width:100%;"></p>
+                                                         <!--[if mso]>
+                                                         <table align="center" border="0" cellpadding="0" cellspacing="0" style="font-size:1px;margin:0 auto;border-top:1px solid #0099f2;width:100%;" width="600">
+                                                            <tr>
+                                                               <td> </td>
+                                                            </tr>
+                                                         </table>
+                                                         <![endif]-->
+                                                      </td>
+                                                   </tr>
+                                                </tbody>
+                                             </table>
+                                          </div>
+                                 <!--[if mso]>
+                                       </td>
+                                    </tr>
+                                 </table>
+                                 <![endif]-->
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+         <!--[if mso]>
+               </td>
+            </tr>
+         </table>
+         <![endif]-->
+         <% if Order::OrderRoundType.is_round_trip(@order.round_type) %>
+         <!--[if mso]>
+         <table border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+            <tr>
+               <td>
+         <![endif]-->
+                  <div style="margin:0 auto;max-width:600px;">
+                     <table cellpadding="0" cellspacing="0" style="font-size:0;width:100%;" align="center" border="0">
+                        <tbody>
+                           <tr>
+                              <td style="text-align:center;vertical-align:top;font-size:0;padding:0 0 0 0;">
+                                 <!--[if mso]>
+                                 <table border="0" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                       <td style="vertical-align:top;width:300px;">
+                                 <![endif]-->
+                                          <div aria-labelledby="mj-column-per-50" class="mj-column-per-50" style="vertical-align:top;display:inline-block;font-size:13px;text-align:left;width:100%;">
+                                             <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                                                <tbody>
+                                                   <tr>
+                                                      <td style="word-break:break-word;background:#ffffff;font-size:0;padding:0 25px 0 25px;padding-right:25px;padding-left:25px;" align="left" background="#ffffff">
+                                                         <div style="cursor:auto;color:#000000;font-family:open sans, Helvetica, Arial, sans-serif;font-size:13px;line-height:22px;">
+                                                            <p><span style="color:#1976D2"><b><span style="font-family:open sans,helvetica,arial,sans-serif"><%= @order.ori_name %> - <%= @order.des_name %></span></b></span></p>
+                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif">Ngày bay <span style="color:#1976d2"><%= Helper::DateFormatter.format_date(@order.depart_date) %></span></span></p>
+                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif">Thời gian <span style="color:#1976d2"><%= Helper::DateFormatter.format_time(@order.depart_from_time) %> - <%= Helper::DateFormatter.format_time(@order.depart_to_time) %></span></span></p>
+                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif">Hãng <%= @order.depart_airline_name %></span></p>
+                                                         </div>
+                                                      </td>
+                                                   </tr>
+                                                </tbody>
+                                             </table>
+                                          </div>
+                                       <!--[if mso]>
+                                       </td>
+                                       <td style="vertical-align:top;width:300px;">
+                                       <![endif]-->
+                                          <div aria-labelledby="mj-column-per-50" class="mj-column-per-50" style="vertical-align:top;display:inline-block;font-size:13px;text-align:left;width:100%;">
+                                             <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                                                <tbody>
+                                                   <tr>
+                                                      <td style="word-break:break-word;background:#ffffff;font-size:0;padding:0 25px 0 25px;padding-right:25px;padding-left:25px;" align="left" background="#ffffff">
+                                                         <div style="cursor:auto;color:#000000;font-family:open sans, Helvetica, Arial, sans-serif;font-size:13px;line-height:22px;">
+                                                            <p><span style="color:#1976D2"><b><span style="font-family:open sans,helvetica,arial,sans-serif"><%= @order.des_name %> - <%= @order.ori_name %></span></b></span></p>
+                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif">Ngày bay <span style="color:#1976d2"><%= Helper::DateFormatter.format_date(@order.return_date) %></span></span></p>
+                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif">Thời gian <span style="color:#1976d2"><%= Helper::DateFormatter.format_time(@order.return_from_time) %> - <%= Helper::DateFormatter.format_time(@order.return_to_time) %></span></span></p>
+                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif">Hãng <%= @order.return_airline_name %></span></p>
+                                                         </div>
+                                                      </td>
+                                                   </tr>
+                                                </tbody>
+                                             </table>
+                                          </div>
+                                          <!--[if mso]>
+                                       </td>
+                                    </tr>
+                                 </table>
+                                 <![endif]-->
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!--[if mso]>
+               </td>
+            </tr>
+         </table>
+         <![endif]-->
+         <% else %>
+         <!--[if mso | IE]>
+         <table border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+            <tr>
+               <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+                  <![endif]-->
+                  <div style="margin:0 auto;max-width:600px;">
+                     <table cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;" align="center" border="0">
+                        <tbody>
+                           <tr>
+                              <td style="text-align:center;vertical-align:top;font-size:0px;padding:0px 0px 0px 0px;">
+                                 <!--[if mso | IE]>
+                                 <table border="0" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                       <td style="vertical-align:top;width:600px;">
+                                          <![endif]-->
+                                          <div aria-labelledby="mj-column-per-100" class="mj-column-per-100" style="vertical-align:top;display:inline-block;font-size:13px;text-align:left;width:100%;">
+                                             <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                                                <tbody>
+                                                   <tr>
+                                                      <td style="word-break:break-word;background:#ffffff;font-size:0px;padding:0px 25px 0px 25px;padding-right:25px;padding-left:25px;" align="left" background="#ffffff">
+                                                         <div style="cursor:auto;color:#000000;font-family:open sans, Helvetica, Arial, sans-serif;font-size:13px;line-height:22px;">
+                                                            <p><span style="color:#1976D2"><b><span style="font-family:open sans,helvetica,arial,sans-serif"><%= @order.ori_name %> - <%= @order.des_name %></span></b></span></p>
+                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif">Ngày bay <span style="color:#1976d2"><%= Helper::DateFormatter.format_date(@order.depart_date) %></span></span></p>
+                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif">Thời gian <span style="color:#1976d2"><%= Helper::DateFormatter.format_time(@order.depart_from_time) %> - <%= Helper::DateFormatter.format_time(@order.depart_to_time) %></span></span></p>
+                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif">Hãng <%= @order.depart_airline_name %></span></p>
+                                                         </div>
+                                                      </td>
+                                                   </tr>
+                                                </tbody>
+                                             </table>
+                                          </div>
+                                          <!--[if mso | IE]>
+                                       </td>
+                                    </tr>
+                                 </table>
+                                 <![endif]-->
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!--[if mso | IE]>
+               </td>
+            </tr>
+         </table>
+         <![endif]-->
+         <% end %>
+         <!--[if mso]>
+         <table border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+            <tr>
+               <td>
+                  <![endif]-->
+                  <div style="margin:0 auto;max-width:600px;">
+                     <table cellpadding="0" cellspacing="0" style="font-size:0;width:100%;" align="center" border="0">
+                        <tbody>
+                           <tr>
+                              <td style="text-align:center;vertical-align:top;font-size:0;padding:0 0 0 0;">
+                                 <!--[if mso]>
+                                 <table border="0" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                       <td style="vertical-align:top;width:600px;">
+                                          <![endif]-->
+                                          <div aria-labelledby="mj-column-per-100" class="mj-column-per-100" style="vertical-align:top;display:inline-block;font-size:13px;text-align:left;width:100%;">
+                                             <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                                                <tbody>
+                                                   <tr>
+                                                      <td style="word-break:break-word;background:#ffffff;font-size:0;padding:0 25px 0 25px;padding-right:25px;padding-left:25px;" align="left" background="#ffffff">
+                                                         <div style="cursor:auto;color:#000000;font-family:open sans, Helvetica, Arial, sans-serif;font-size:13px;line-height:5px;">
+                                                            <h3><span style="color:#0d2c54"><span style="font-size:13px"><span style="font-family:open sans,helvetica,arial,sans-serif">Thông tin hành khách</span></span></span></h3>
+                                                         </div>
+                                                      </td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td style="word-break:break-word;background:#ffffff;font-size:0;padding:10px 25px;" background="#ffffff">
+                                                         <p style="font-size:1px;margin:0 auto;border-top:1px solid #0099f2;width:100%;"></p>
+                                                         <!--[if mso]>
+                                                         <table align="center" border="0" cellpadding="0" cellspacing="0" style="font-size:1px;margin:0 auto;border-top:1px solid #0099f2;width:100%;" width="600">
+                                                            <tr>
+                                                               <td> </td>
+                                                            </tr>
+                                                         </table>
+                                                         <![endif]-->
+                                                      </td>
+                                                   </tr>
+                                                </tbody>
+                                             </table>
+                                          </div>
+                                          <!--[if mso]>
+                                       </td>
+                                    </tr>
+                                 </table>
+                                 <![endif]-->
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!--[if mso]>
+               </td>
+            </tr>
+         </table>
+         <![endif]-->
+         <% @order.passengers.each do |passenger| %>
+         <!--[if mso]>
+         <table border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+            <tr>
+               <td>
+                  <![endif]-->
+                  <div style="margin:0 auto;max-width:600px;">
+                     <table cellpadding="0" cellspacing="0" style="font-size:0;width:100%;" align="center" border="0">
+                        <tbody>
+                           <tr>
+                              <td style="text-align:center;vertical-align:top;font-size:0;padding:0 0 0 0;">
+                                 <!--[if mso]>
+                                 <table border="0" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                       <td style="vertical-align:top;width:600px;">
+                                          <![endif]-->
+                                          <div aria-labelledby="mj-column-per-100" class="mj-column-per-100" style="vertical-align:top;display:inline-block;font-size:13px;text-align:left;width:100%;">
+                                             <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                                                <tbody>
+                                                   <tr>
+                                                      <td style="word-break:break-word;background:#ffffff;font-size:0;padding:0 25px 0 25px;padding-right:25px;padding-left:25px;" align="left" background="#ffffff">
+                                                         <div style="cursor:auto;color:#000000;font-family:open sans, Helvetica, Arial, sans-serif;font-size:13px;line-height:22px;">
+                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif"><%= Passenger::Category.name(passenger.category) %> <%= passenger.no %></span></p>
+                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif"><%= Passenger::Title.show(passenger.gender, passenger.category) %>. <b><%= passenger.name.upcase %></b></span></p>
+                                                            <% if Passenger::Category.is_infant(passenger.category) %>
+                                                               <p><span style="font-family:open sans,helvetica,arial,sans-serif">Ngày sinh <b><%= Helper::DateFormatter.format_date(passenger.birth) %></b></span></p>
+                                                            <% end %>
+                                                            <% unless Passenger::Category.is_infant(passenger.category) %>
+                                                               <p><span style="font-family:open sans,helvetica,arial,sans-serif">Hành lý chiều đi: <%= Helper::EmailOrderFormatter.show_luggage(passenger.depart_lug_weight) %></span></p>
+                                                               <% if Order::OrderRoundType.is_round_trip(@order.round_type) %>
+                                                                  <p><span style="font-family:open sans,helvetica,arial,sans-serif">Hành lý chiều về: <%= Helper::EmailOrderFormatter.show_luggage(passenger.return_lug_weight) %></span></p>
+                                                               <% end %>
+                                                            <% end %>
+                                                         </div>
+                                                      </td>
+                                                   </tr>
+                                                </tbody>
+                                             </table>
+                                          </div>
+                                          <!--[if mso]>
+                                       </td>
+                                    </tr>
+                                 </table>
+                                 <![endif]-->
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!--[if mso]>
+               </td>
+            </tr>
+         </table>
+         <![endif]-->
+         <% end %>
+         <!--[if mso]>
+         <table border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+            <tr>
+               <td>
+                  <![endif]-->
+                  <div style="margin:0 auto;max-width:600px;">
+                     <table cellpadding="0" cellspacing="0" style="font-size:0;width:100%;" align="center" border="0">
+                        <tbody>
+                           <tr>
+                              <td style="text-align:center;vertical-align:top;font-size:0;padding:0 0 0 0;">
+                                 <!--[if mso]>
+                                 <table border="0" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                       <td style="vertical-align:top;width:600px;">
+                                          <![endif]-->
+                                          <div aria-labelledby="mj-column-per-100" class="mj-column-per-100" style="vertical-align:top;display:inline-block;font-size:13px;text-align:left;width:100%;">
+                                             <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                                                <tbody>
+                                                   <tr>
+                                                      <td style="word-break:break-word;background:#ffffff;font-size:0;padding:0 25px 0 25px;padding-right:25px;padding-left:25px;" align="left" background="#ffffff">
+                                                         <div style="cursor:auto;color:#000000;font-family:open sans, Helvetica, Arial, sans-serif;font-size:13px;line-height:5px;">
+                                                            <h3><span style="color:#0d2c54"><span style="font-size:13px"><span style="font-family:open sans,helvetica,arial,sans-serif">Thông tin khách hàng đặt vé</span></span></span></h3>
+                                                         </div>
+                                                      </td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td style="word-break:break-word;background:#ffffff;font-size:0;padding:10px 25px;" background="#ffffff">
+                                                         <p style="font-size:1px;margin:0 auto;border-top:1px solid #0099f2;width:100%;"></p>
+                                                         <!--[if mso]>
+                                                         <table align="center" border="0" cellpadding="0" cellspacing="0" style="font-size:1px;margin:0 auto;border-top:1px solid #0099f2;width:100%;" width="600">
+                                                            <tr>
+                                                               <td> </td>
+                                                            </tr>
+                                                         </table>
+                                                         <![endif]-->
+                                                      </td>
+                                                   </tr>
+                                                </tbody>
+                                             </table>
+                                          </div>
+                                          <!--[if mso]>
+                                       </td>
+                                    </tr>
+                                 </table>
+                                 <![endif]-->
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!--[if mso]>
+               </td>
+            </tr>
+         </table>
+         <![endif]-->
+         <!--[if mso]>
+         <table border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+            <tr>
+               <td>
+                  <![endif]-->
+                  <div style="margin:0 auto;max-width:600px;">
+                     <table cellpadding="0" cellspacing="0" style="font-size:0;width:100%;" align="center" border="0">
+                        <tbody>
+                           <tr>
+                              <td style="text-align:center;vertical-align:top;font-size:0;padding:0 0 0 0;">
+                                 <!--[if mso]>
+                                 <table border="0" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                       <td style="vertical-align:top;width:600px;">
+                                          <![endif]-->
+                                          <div aria-labelledby="mj-column-per-100" class="mj-column-per-100" style="vertical-align:top;display:inline-block;font-size:13px;text-align:left;width:100%;">
+                                             <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                                                <tbody>
+                                                   <tr>
+                                                      <td style="word-break:break-word;background:#ffffff;font-size:0;padding:0 25px 0 25px;padding-right:25px;padding-left:25px;" align="left" background="#ffffff">
+                                                         <div style="cursor:auto;color:#000000;font-family:open sans, Helvetica, Arial, sans-serif;font-size:13px;line-height:22px;">
+                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif"><%= Customer::Title.show(@order.contact_gender) %>. <b><%= @order.contact_name.upcase %></b></span></p>
+                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif">Điện thoại <%= @order.contact_phone %></span></p>
+                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif">Email <%= @order.contact_email %></span></p>
+                                                         </div>
+                                                      </td>
+                                                   </tr>
+                                                </tbody>
+                                             </table>
+                                          </div>
+                                          <!--[if mso]>
+                                       </td>
+                                    </tr>
+                                 </table>
+                                 <![endif]-->
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!--[if mso]>
+               </td>
+            </tr>
+         </table>
+         <![endif]-->
+         <!--[if mso]>
+         <table border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+            <tr>
+               <td>
+                  <![endif]-->
+                  <div style="margin:0 auto;max-width:600px;">
+                     <table cellpadding="0" cellspacing="0" style="font-size:0;width:100%;" align="center" border="0">
+                        <tbody>
+                           <tr>
+                              <td style="text-align:center;vertical-align:top;font-size:0;padding:0 0 0 0;">
+                                 <!--[if mso]>
+                                 <table border="0" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                       <td style="vertical-align:top;width:600px;">
+                                          <![endif]-->
+                                          <div aria-labelledby="mj-column-per-100" class="mj-column-per-100" style="vertical-align:top;display:inline-block;font-size:13px;text-align:left;width:100%;">
+                                             <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                                                <tbody>
+                                                   <tr>
+                                                      <td style="word-break:break-word;background:#ffffff;font-size:0;padding:0 25px 0 25px;padding-right:25px;padding-left:25px;" align="left" background="#ffffff">
+                                                         <div style="cursor:auto;color:#000000;font-family:open sans, Helvetica, Arial, sans-serif;font-size:13px;line-height:5px;">
+                                                            <h3><span style="color:#0d2c54"><span style="font-size:13px"><span style="font-family:open sans,helvetica,arial,sans-serif">Thông tin thanh toán</span></span></span></h3>
+                                                         </div>
+                                                      </td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td style="word-break:break-word;background:#ffffff;font-size:0;padding:10px 25px;" background="#ffffff">
+                                                         <p style="font-size:1px;margin:0 auto;border-top:1px solid #0099f2;width:100%;"></p>
+                                                         <!--[if mso]>
+                                                         <table align="center" border="0" cellpadding="0" cellspacing="0" style="font-size:1px;margin:0 auto;border-top:1px solid #0099f2;width:100%;" width="600">
+                                                            <tr>
+                                                               <td> </td>
+                                                            </tr>
+                                                         </table>
+                                                         <![endif]-->
+                                                      </td>
+                                                   </tr>
+                                                </tbody>
+                                             </table>
+                                          </div>
+                                          <!--[if mso]>
+                                       </td>
+                                    </tr>
+                                 </table>
+                                 <![endif]-->
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!--[if mso]>
+               </td>
+            </tr>
+         </table>
+         <![endif]-->
+         <!--[if mso]>
+         <table border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+            <tr>
+               <td>
+                  <![endif]-->
+                  <div style="margin:0 auto;max-width:600px;">
+                     <table cellpadding="0" cellspacing="0" style="font-size:0;width:100%;" align="center" border="0">
+                        <tbody>
+                           <tr>
+                              <td style="text-align:center;vertical-align:top;font-size:0;padding:0 0 0 0;">
+                                 <!--[if mso]>
+                                 <table border="0" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                       <td style="vertical-align:top;width:600px;">
+                                          <![endif]-->
+                                          <div aria-labelledby="mj-column-per-100" class="mj-column-per-100" style="vertical-align:top;display:inline-block;font-size:13px;text-align:left;width:100%;">
+                                             <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                                                <tbody>
+                                                   <tr>
+                                                      <td style="word-break:break-word;background:#ffffff;font-size:0;padding:0 25px 0 25px;padding-right:25px;padding-left:25px;" align="left" background="#ffffff">
+                                                         <div style="cursor:auto;color:#000000;font-family:open sans, Helvetica, Arial, sans-serif;font-size:13px;line-height:22px;">
+                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif">Tổng tiền cần thanh toán <span style="color:#FF5252"><b><%= Helper::CurrencyHelper.format(@order.total_price) %></b></span></span></p>
+                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif">Nội dung chuyển khoản <span style="color:#FF5252"><b><%= @order.order_number %></b></span></span></p>
+                                                         </div>
+                                                      </td>
+                                                   </tr>
+                                                </tbody>
+                                             </table>
+                                          </div>
+                                          <!--[if mso]>
+                                       </td>
+                                    </tr>
+                                 </table>
+                                 <![endif]-->
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!--[if mso]>
+               </td>
+            </tr>
+         </table>
+         <![endif]-->
+         <!--[if mso]>
+         <table border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+            <tr>
+               <td>
+                  <![endif]-->
+                  <div style="margin:0 auto;max-width:600px;">
+                     <table cellpadding="0" cellspacing="0" style="font-size:0;width:100%;" align="center" border="0">
+                        <tbody>
+                           <tr>
+                              <td style="text-align:center;vertical-align:top;font-size:0;padding:0 0 0 0;">
+                                 <!--[if mso]>
+                                 <table border="0" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                       <td style="vertical-align:top;width:600px;">
+                                          <![endif]-->
+                                          <div aria-labelledby="mj-column-per-100" class="mj-column-per-100" style="vertical-align:top;display:inline-block;font-size:13px;text-align:left;width:100%;">
+                                             <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                                                <tbody>
+                                                   <tr>
+                                                      <td style="word-break:break-word;background:#ffffff;font-size:0;padding:0 25px 0 25px;padding-right:25px;padding-left:25px;" align="left" background="#ffffff">
+                                                         <div style="cursor:auto;color:#000000;font-family:open sans, Helvetica, Arial, sans-serif;font-size:13px;line-height:5px;">
+                                                            <h3><span style="color:#0d2c54"><span style="font-size:13px"><span style="font-family:open sans,helvetica,arial,sans-serif">Ngân hàng hỗ trợ</span></span></span></h3>
+                                                         </div>
+                                                      </td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td style="word-break:break-word;background:#ffffff;font-size:0;padding:10px 25px;" background="#ffffff">
+                                                         <p style="font-size:1px;margin:0 auto;border-top:1px solid #0099f2;width:100%;"></p>
+                                                         <!--[if mso]>
+                                                         <table align="center" border="0" cellpadding="0" cellspacing="0" style="font-size:1px;margin:0 auto;border-top:1px solid #0099f2;width:100%;" width="600">
+                                                            <tr>
+                                                               <td> </td>
+                                                            </tr>
+                                                         </table>
+                                                         <![endif]-->
+                                                      </td>
+                                                   </tr>
+                                                </tbody>
+                                             </table>
+                                          </div>
+                                          <!--[if mso]>
+                                       </td>
+                                    </tr>
+                                 </table>
+                                 <![endif]-->
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!--[if mso]>
+               </td>
+            </tr>
+         </table>
+         <![endif]-->
+         <!--[if mso]>
+         <table border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+            <tr>
+               <td>
+                  <![endif]-->
+                  <div style="margin:0 auto;max-width:600px;">
+                     <table cellpadding="0" cellspacing="0" style="font-size:0;width:100%;" align="center" border="0">
+                        <tbody>
+                           <tr>
+                              <td style="text-align:center;vertical-align:top;font-size:0;padding:0 0 0 0;">
+                                 <!--[if mso]>
+                                 <table border="0" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                       <td style="vertical-align:top;width:600px;">
+                                          <![endif]-->
+                                          <div aria-labelledby="mj-column-per-100" class="mj-column-per-100" style="vertical-align:top;display:inline-block;font-size:13px;text-align:left;width:100%;">
+                                             <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                                                <tbody>
+                                                   <tr>
+                                                      <td style="word-break:break-word;background:#ffffff;font-size:0;padding:0 25px 0 25px;padding-right:25px;padding-left:25px;" align="left" background="#ffffff">
+                                                         <div style="cursor:auto;color:#000000;font-family:open sans, Helvetica, Arial, sans-serif;font-size:13px;line-height:10px;">
+                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif"><b>Vietcombank</b></span></p>
+                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif"><i><span style="font-size:12px">Chủ tài khoản Lê Đô Na</span></i></span></p>
+                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif"><i><span style="font-size:12px">Số tài khoản 857394834</span></i></span></p>
+                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif"><i><span style="font-size:12px">Chi nhánh Kỳ Đồng</span></i></span></p>
+                                                         </div>
+                                                      </td>
+                                                   </tr>
+                                                </tbody>
+                                             </table>
+                                          </div>
+                                          <!--[if mso]>
+                                       </td>
+                                    </tr>
+                                 </table>
+                                 <![endif]-->
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!--[if mso]>
+               </td>
+            </tr>
+         </table>
+         <![endif]-->
+         <!--[if mso]>
+         <table border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+            <tr>
+               <td>
+                  <![endif]-->
+                  <div style="margin:0 auto;max-width:600px;">
+                     <table cellpadding="0" cellspacing="0" style="font-size:0;width:100%;" align="center" border="0">
+                        <tbody>
+                           <tr>
+                              <td style="text-align:center;vertical-align:top;font-size:0;padding:0 0 0 0;">
+                                 <!--[if mso]>
+                                 <table border="0" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                       <td style="vertical-align:top;width:600px;">
+                                          <![endif]-->
+                                          <div aria-labelledby="mj-column-per-100" class="mj-column-per-100" style="vertical-align:top;display:inline-block;font-size:13px;text-align:left;width:100%;">
+                                             <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                                                <tbody>
+                                                   <tr>
+                                                      <td style="word-break:break-word;background:#ffffff;font-size:0;padding:0 25px 0 25px;padding-right:25px;padding-left:25px;" align="left" background="#ffffff">
+                                                         <div style="cursor:auto;color:#000000;font-family:open sans, Helvetica, Arial, sans-serif;font-size:13px;line-height:10px;">
+                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif"><b>Ngân hàng Quân đi MB</b></span></p>
+                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif"><i><span style="font-size:12px">Chủ tài khoản Lê Đô Na</span></i></span></p>
+                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif"><i><span style="font-size:12px">Số tài khoản 5487584754</span></i></span></p>
+                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif"><i><span style="font-size:12px">Chi nhánh Kỳ Đồng</span></i></span></p>
+                                                         </div>
+                                                      </td>
+                                                   </tr>
+                                                </tbody>
+                                             </table>
+                                          </div>
+                                          <!--[if mso]>
+                                       </td>
+                                    </tr>
+                                 </table>
+                                 <![endif]-->
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!--[if mso]>
+               </td>
+            </tr>
+         </table>
+         <![endif]-->
+         <!--[if mso]>
+         <table border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+            <tr>
+               <td>
+                  <![endif]-->
+                  <div style="margin:0 auto;max-width:600px;">
+                     <table cellpadding="0" cellspacing="0" style="font-size:0;width:100%;" align="center" border="0">
+                        <tbody>
+                           <tr>
+                              <td style="text-align:center;vertical-align:top;font-size:0;padding:0 0 0 0;">
+                                 <!--[if mso]>
+                                 <table border="0" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                       <td style="vertical-align:top;width:600px;">
+                                          <![endif]-->
+                                          <div aria-labelledby="mj-column-per-100" class="mj-column-per-100" style="vertical-align:top;display:inline-block;font-size:13px;text-align:left;width:100%;">
+                                             <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                                                <tbody>
+                                                   <tr>
+                                                      <td style="word-break:break-word;font-size:0;padding:0 0 0 0;" align="center">
+                                                         <div style="cursor:auto;color:#000000;font-family:open sans, Helvetica, Arial, sans-serif;font-size:13px;line-height:22px;">
+                                                            <h3><span style="font-family:open sans,helvetica,arial,sans-serif"><span style="color:#212121">Một sản phẩm của Dona Sky team <span style="font-size:16px">© 2016</span></span></span></h3>
+                                                            <h3><span style="font-family:open sans,helvetica,arial,sans-serif"><span style="color:#212121">Hỗ trợ 0933554440</span></span></h3>
+                                                         </div>
+                                                      </td>
+                                                   </tr>
+                                                </tbody>
+                                             </table>
+                                          </div>
+                                          <!--[if mso]>
+                                       </td>
+                                    </tr>
+                                 </table>
+                                 <![endif]-->
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!--[if mso]>
+               </td>
+            </tr>
+         </table>
+         <![endif]-->
+      </div>
+   </body>
+</html>
