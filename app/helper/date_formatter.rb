@@ -1,4 +1,4 @@
-class Helper::DateFormatter
+class DateFormatter
   def self.format_date_time(time)
     time.strftime("%H:%M %d/%m/%Y")
   end

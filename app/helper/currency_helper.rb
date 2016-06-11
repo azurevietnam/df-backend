@@ -1,4 +1,4 @@
-class Helper::CurrencyHelper
+class CurrencyHelper
   def self.format(currency, *unit)
     if !unit.empty?
       currency_str = ActiveSupport::NumberHelper.number_to_currency(currency, unit: unit[0].to_s, separator: ".", delimiter: ",", precision: 0, format: "%n %u")

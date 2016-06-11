@@ -200,8 +200,8 @@
                                                       <td style="word-break:break-word;background:#ffffff;font-size:0;padding:0 25px 0 25px;padding-right:25px;padding-left:25px;" align="left" background="#ffffff">
                                                          <div style="cursor:auto;color:#000000;font-family:open sans, Helvetica, Arial, sans-serif;font-size:13px;line-height:22px;">
                                                             <p><span style="color:#1976D2"><b><span style="font-family:open sans,helvetica,arial,sans-serif"><%= @order.ori_name %> - <%= @order.des_name %></span></b></span></p>
-                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif">Ngày bay <span style="color:#1976d2"><%= Helper::DateFormatter.format_date(@order.depart_date) %></span></span></p>
-                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif">Thời gian <span style="color:#1976d2"><%= Helper::DateFormatter.format_time(@order.depart_from_time) %> - <%= Helper::DateFormatter.format_time(@order.depart_to_time) %></span></span></p>
+                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif">Ngày bay <span style="color:#1976d2"><%= DateFormatter.format_date(@order.depart_date) %></span></span></p>
+                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif">Thời gian <span style="color:#1976d2"><%= DateFormatter.format_time(@order.depart_from_time) %> - <%= DateFormatter.format_time(@order.depart_to_time) %></span></span></p>
                                                             <p><span style="font-family:open sans,helvetica,arial,sans-serif">Mã đặt chỗ <span style="color:#1976D2"><b><%= @order.depart_book_code %></b></span></span></p>
                                                             <p><span style="font-family:open sans,helvetica,arial,sans-serif">Hãng <%= @order.depart_airline_name %> (<%= @order.depart_flight_code %>)</span></p>
                                                          </div>
@@ -221,8 +221,8 @@
                                                       <td style="word-break:break-word;background:#ffffff;font-size:0;padding:0 25px 0 25px;padding-right:25px;padding-left:25px;" align="left" background="#ffffff">
                                                          <div style="cursor:auto;color:#000000;font-family:open sans, Helvetica, Arial, sans-serif;font-size:13px;line-height:22px;">
                                                             <p><span style="color:#1976D2"><b><span style="font-family:open sans,helvetica,arial,sans-serif"><%= @order.des_name %> - <%= @order.ori_name %></span></b></span></p>
-                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif">Ngày bay <span style="color:#1976d2"><%= Helper::DateFormatter.format_date(@order.return_date) %></span></span></p>
-                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif">Thời gian <span style="color:#1976d2"><%= Helper::DateFormatter.format_time(@order.return_from_time) %> - <%= Helper::DateFormatter.format_time(@order.return_to_time) %></span></span></p>
+                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif">Ngày bay <span style="color:#1976d2"><%= DateFormatter.format_date(@order.return_date) %></span></span></p>
+                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif">Thời gian <span style="color:#1976d2"><%= DateFormatter.format_time(@order.return_from_time) %> - <%= DateFormatter.format_time(@order.return_to_time) %></span></span></p>
                                                             <p><span style="font-family:open sans,helvetica,arial,sans-serif">Mã đặt chỗ <span style="color:#1976D2"><b><%= @order.return_book_code %></b></span></span></p>
                                                             <p><span style="font-family:open sans,helvetica,arial,sans-serif">Hãng <%= @order.return_airline_name %> (<%= @order.return_flight_code %>)</span></p>
                                                          </div>
@@ -269,8 +269,8 @@
                                                       <td style="word-break:break-word;background:#ffffff;font-size:0px;padding:0px 25px 0px 25px;padding-right:25px;padding-left:25px;" align="left" background="#ffffff">
                                                          <div style="cursor:auto;color:#000000;font-family:open sans, Helvetica, Arial, sans-serif;font-size:13px;line-height:22px;">
                                                             <p><span style="color:#1976D2"><b><span style="font-family:open sans,helvetica,arial,sans-serif"><%= @order.ori_name %> - <%= @order.des_name %></span></b></span></p>
-                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif">Ngày bay <span style="color:#1976d2"><%= Helper::DateFormatter.format_date(@order.depart_date) %></span></span></p>
-                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif">Thời gian <span style="color:#1976d2"><%= Helper::DateFormatter.format_time(@order.depart_from_time) %> - <%= Helper::DateFormatter.format_time(@order.depart_to_time) %></span></span></p>
+                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif">Ngày bay <span style="color:#1976d2"><%= DateFormatter.format_date(@order.depart_date) %></span></span></p>
+                                                            <p><span style="font-family:open sans,helvetica,arial,sans-serif">Thời gian <span style="color:#1976d2"><%= DateFormatter.format_time(@order.depart_from_time) %> - <%= DateFormatter.format_time(@order.depart_to_time) %></span></span></p>
                                                             <p><span style="font-family:open sans,helvetica,arial,sans-serif">Hãng <%= @order.depart_airline_name %></span></p>
                                                          </div>
                                                       </td>
@@ -374,12 +374,12 @@
                                                             <p><span style="font-family:open sans,helvetica,arial,sans-serif"><%= Passenger::Category.name(passenger.category) %> <%= passenger.no %></span></p>
                                                             <p><span style="font-family:open sans,helvetica,arial,sans-serif"><%= Passenger::Title.show(passenger.gender, passenger.category) %>. <b><%= passenger.name.upcase %></b></span></p>
                                                             <% if Passenger::Category.is_infant(passenger.category) %>
-                                                               <p><span style="font-family:open sans,helvetica,arial,sans-serif">Ngày sinh <b><%= Helper::DateFormatter.format_date(passenger.birth) %></b></span></p>
+                                                               <p><span style="font-family:open sans,helvetica,arial,sans-serif">Ngày sinh <b><%= DateFormatter.format_date(passenger.birth) %></b></span></p>
                                                             <% end %>
                                                             <% unless Passenger::Category.is_infant(passenger.category) %>
-                                                               <p><span style="font-family:open sans,helvetica,arial,sans-serif">Hành lý chiều đi: <%= Helper::EmailOrderFormatter.show_luggage(passenger.depart_lug_weight) %></span></p>
+                                                               <p><span style="font-family:open sans,helvetica,arial,sans-serif">Hành lý chiều đi: <%= EmailOrderFormatter.show_luggage(passenger.depart_lug_weight) %></span></p>
                                                                <% if Order::OrderRoundType.is_round_trip(@order.round_type) %>
-                                                                  <p><span style="font-family:open sans,helvetica,arial,sans-serif">Hành lý chiều về: <%= Helper::EmailOrderFormatter.show_luggage(passenger.return_lug_weight) %></span></p>
+                                                                  <p><span style="font-family:open sans,helvetica,arial,sans-serif">Hành lý chiều về: <%= EmailOrderFormatter.show_luggage(passenger.return_lug_weight) %></span></p>
                                                                <% end %>
                                                             <% end %>
                                                          </div>

@@ -1,4 +1,4 @@
-class Helper::EmailOrderFormatter
+class EmailOrderFormatter
   def self.show_luggage(luggage_weight)
     luggage_str = "7kg xách tay"
     if luggage_weight > 0

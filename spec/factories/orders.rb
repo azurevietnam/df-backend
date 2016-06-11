@@ -7,7 +7,7 @@ FactoryGirl.define do
   end
   
   factory :order do
-    order_number OrdersController.new.generate_order_number
+    order_number Order::OrderNoGenerator.new.call
     customer
     contact_name
     contact_phone "09354554421"
