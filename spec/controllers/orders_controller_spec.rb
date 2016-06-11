@@ -216,11 +216,11 @@ RSpec.describe OrdersController, type: :controller do
     end
   end
   
-  describe "FIND #find" do
-    context "when found order from its order number" do
+  describe "#find" do
+    context "when found order by order number" do
       before(:each) do
         @order = FactoryGirl.create(:order)
-        get :find, order_number: @order.order_number
+        get :find, order_number: @order.order_number, book_code: ""
         
         @order_response = json_response
       end
@@ -229,10 +229,34 @@ RSpec.describe OrdersController, type: :controller do
         expect(@order_response[:id]).to eql @order.id
       end      
     end
-    
-    context "when cannot found order from its order number" do
+    context "when found order by book code depart" do
       before(:each) do
-        get :find, order_number: "CANNOT_HAVE_THIS_ORDER_NUMBER"
+        @order = FactoryGirl.create(:order, depart_book_code: 'ABCDEF')
+        get :find, order_number: "", book_code: @order.depart_book_code
+        
+        @order_response = json_response
+      end
+      
+      it "return correct order by book code" do
+        expect(@order_response[:id]).to eql @order.id
+      end      
+    end
+    context "when found order by book code return" do
+      before(:each) do
+        @order = FactoryGirl.create(:order, :round_trip, return_book_code: 'ABCDEF')
+        get :find, order_number: "", book_code: @order.return_book_code
+        
+        @order_response = json_response
+      end
+      
+      it "return correct order by book code" do
+        expect(@order_response[:id]).to eql @order.id
+      end      
+    end
+    
+    context "when cannot found order by order number" do
+      before(:each) do
+        get :find, order_number: "CANNOT_HAVE_THIS_ORDER_NUMBER", book_code: ""
         
         @order_response = json_response
       end

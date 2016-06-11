@@ -21,7 +21,7 @@ class OrdersController < ApplicationController
   end
   
   def find
-    order = Order.includes(:passengers).find_by!(order_number: params[:order_number])
+    order = Order.includes(:passengers).where("order_number=? or depart_book_code=? or return_book_code=?", params[:order_number], params[:book_code], params[:book_code]).first!
     render json: order.to_json(include: :passengers), status: :ok
   end
   
