@@ -85,23 +85,25 @@ RSpec.describe Order::CreateOrder do
         @order_response = create_order.call.data
       end
 
-      it "renders correct order response" do        
+      it "renders correct order response" do
         expect(@order_response.contact_name).to eql contact_name
         expect(@order_response.contact_phone).to eql contact_phone
         expect(@order_response.contact_email).to eql contact_email
         expect(@order_response.contact_gender).to eql contact_gender
+        expect(@order_response.ori_code).to eql @ori_place.code
+        expect(@order_response.des_code).to eql @des_place.code
         expect(@order_response.round_type).to eql round_type
         expect(@order_response.depart_flight_code).to eql depart_flight_code
         expect(@order_response.depart_date.to_s).to eql depart_date.to_s
-        expect(extract_time_string_from_Time(@order_response.depart_from_time)).to eql extract_time_string_from_Time(depart_from_time)
-        expect(extract_time_string_from_Time(@order_response.depart_to_time)).to eql extract_time_string_from_Time(depart_to_time)
+        expect(Helper::Order::ExtractTime.call(@order_response.depart_from_time)).to eql Helper::Order::ExtractTime.call(depart_from_time)
+        expect(Helper::Order::ExtractTime.call(@order_response.depart_to_time)).to eql Helper::Order::ExtractTime.call(depart_to_time)
         expect(@order_response.depart_book_code).to eql depart_book_code
         expect(@order_response.depart_web_price_net).to eql depart_web_price_net
         expect(@order_response.depart_total).to eql depart_total
         expect(@order_response.return_flight_code).to eql return_flight_code
         expect(@order_response.return_date.to_s).to eql return_date.to_s
-        expect(extract_time_string_from_Time(@order_response.return_from_time)).to eql extract_time_string_from_Time(return_from_time)
-        expect(extract_time_string_from_Time(@order_response.return_to_time)).to eql extract_time_string_from_Time(return_to_time)
+        expect(Helper::Order::ExtractTime.call(@order_response.return_from_time)).to eql Helper::Order::ExtractTime.call(return_from_time)
+        expect(Helper::Order::ExtractTime.call(@order_response.return_to_time)).to eql Helper::Order::ExtractTime.call(return_to_time)
         expect(@order_response.return_book_code).to eql return_book_code
         expect(@order_response.return_web_price_net).to eql return_web_price_net
         expect(@order_response.return_total).to eql return_total
@@ -190,17 +192,12 @@ RSpec.describe Order::CreateOrder do
         create_order = Order::CreateOrder.new(create_params, get_customer_order, contact_info, order_no_generator)
         @order_response = create_order.call
       end
-      it "return an errors json" do
+      it "return an error message" do
         expect(@order_response).to be_an_instance_of(Response::Error)
       end
-      it "return the json errors on why the order cannot be created" do
-        expect(@order_response.message).to include "some parameters are missed"
+      it "return the error message on why the order cannot be created" do
+        expect(@order_response.message).to include "Couldn't find"
       end
     end
   end
-
-  private
-    def extract_time_string_from_Time(time)
-      time.strftime(FORMAT_TIME_STR)
-    end
 end

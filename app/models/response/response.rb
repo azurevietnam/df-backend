@@ -1,8 +1,9 @@
 class Response::Response
-  attr_reader :data, :message
-  def initialize(data, message)
-    @data = data
-    @message = message
+  attr_reader :data, :message, :error_type
+  def initialize(args)
+    args.each do |k,v|
+      instance_variable_set("@#{k}",v) unless v.nil?
+    end
   end
 
   def success?

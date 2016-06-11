@@ -180,7 +180,7 @@ RSpec.describe OrdersController, type: :controller do
         expect(@order_response).to have_key(:errors)
       end
       it "return the json errors on why the order cannot be created" do
-        expect(@order_response[:errors]).to include "some parameters are missed"
+        expect(@order_response[:errors]).to include "Couldn't find"
       end
     end
   end
