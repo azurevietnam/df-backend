@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Order::CreateOrder do
-  FORMAT_TIME_STR = '%H:%M'
-
   describe "#call" do
     contact_name = "Luis Hamiton"
     contact_phone = "0934955594"
@@ -37,7 +35,6 @@ RSpec.describe Order::CreateOrder do
       return_book_code= "REJ24F"
       return_web_price_net= 500000
       return_total= 1400000
-      total_price = depart_total + return_total
       contact_note = "Pay later"
       admin_note = "This is trusted customer"
 
@@ -70,7 +67,6 @@ RSpec.describe Order::CreateOrder do
           return_book_code: return_book_code,
           return_web_price_net: return_web_price_net,
           return_total: return_total,
-          total_price: total_price,
           contact_note: contact_note,
           admin_note: admin_note,
           passengers_attributes: [
@@ -81,7 +77,8 @@ RSpec.describe Order::CreateOrder do
                                             create_params[:contact_name], create_params[:contact_gender])
         get_customer_order = Order::GetCustomerOrder.new
         order_no_generator = Order::OrderNoGenerator.new
-        create_order = Order::CreateOrder.new(create_params, get_customer_order, contact_info, order_no_generator)
+        @calculate_price_order = Order::CalculatePriceOrder.new({round_type: create_params[:round_type], depart_total: create_params[:depart_total], return_total: create_params[:return_total]})
+        create_order = Order::CreateOrder.new(create_params, get_customer_order, contact_info, order_no_generator, @calculate_price_order)
         @order_response = create_order.call.data
       end
 
@@ -107,7 +104,7 @@ RSpec.describe Order::CreateOrder do
         expect(@order_response.return_book_code).to eql return_book_code
         expect(@order_response.return_web_price_net).to eql return_web_price_net
         expect(@order_response.return_total).to eql return_total
-        expect(@order_response.total_price).to eql total_price
+        expect(@order_response.total_price).to eql @calculate_price_order.call
         expect(@order_response.contact_note).to eql contact_note
         expect(@order_response.admin_note).to eql admin_note
       end
@@ -130,7 +127,9 @@ RSpec.describe Order::CreateOrder do
                                             create_params[:contact_name], create_params[:contact_gender])
         get_customer_order = Order::GetCustomerOrder.new
         order_no_generator = Order::OrderNoGenerator.new
-        create_order = Order::CreateOrder.new(create_params, get_customer_order, contact_info, order_no_generator)
+        calculate_price_order = double(Order::CreateOrder)
+        expect(calculate_price_order).to receive(:call).and_return(10)
+        create_order = Order::CreateOrder.new(create_params, get_customer_order, contact_info, order_no_generator, calculate_price_order)
         @order_response = create_order.call.data
       end
 
@@ -162,7 +161,9 @@ RSpec.describe Order::CreateOrder do
                                             create_params[:contact_name], create_params[:contact_gender])
         get_customer_order = Order::GetCustomerOrder.new
         order_no_generator = Order::OrderNoGenerator.new
-        create_order = Order::CreateOrder.new(create_params, get_customer_order, contact_info, order_no_generator)
+        calculate_price_order = double(Order::CreateOrder)
+        expect(calculate_price_order).to receive(:call).and_return(10)
+        create_order = Order::CreateOrder.new(create_params, get_customer_order, contact_info, order_no_generator, calculate_price_order)
         
         @order_response = create_order.call.data
       end
@@ -189,7 +190,8 @@ RSpec.describe Order::CreateOrder do
                                             create_params[:contact_name], create_params[:contact_gender])
         get_customer_order = Order::GetCustomerOrder.new
         order_no_generator = Order::OrderNoGenerator.new
-        create_order = Order::CreateOrder.new(create_params, get_customer_order, contact_info, order_no_generator)
+        calculate_price_order = double(Order::CreateOrder)
+        create_order = Order::CreateOrder.new(create_params, get_customer_order, contact_info, order_no_generator, calculate_price_order)
         @order_response = create_order.call
       end
       it "return an error message" do

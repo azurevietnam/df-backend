@@ -18,7 +18,6 @@ RSpec.describe Order::UpdateOrder do
       return_book_code= "REJ24F"
       return_web_price_net= 500000
       return_total= 1400000
-      total_price = depart_total + return_total
       contact_note = "Pay later"
       admin_note = "This is trusted customer"
       
@@ -61,7 +60,6 @@ RSpec.describe Order::UpdateOrder do
           return_book_code: return_book_code,
           return_web_price_net: return_web_price_net,
           return_total: return_total,
-          total_price: total_price,
           contact_note: contact_note,
           admin_note: admin_note,
           passengers_attributes: [
@@ -70,7 +68,8 @@ RSpec.describe Order::UpdateOrder do
         }
         contact_info = double(Order::ContactInfo)                                            
         get_customer_order = Order::GetCustomerOrder.new
-        update_order = Order::UpdateOrder.new(@update_params, get_customer_order, contact_info)
+        @calculate_price_order = Order::CalculatePriceOrder.new({round_type: @update_params[:round_type], depart_total: @update_params[:depart_total], return_total: @update_params[:return_total]})
+        update_order = Order::UpdateOrder.new(@update_params, get_customer_order, contact_info, @calculate_price_order)
         @updated_order = update_order.call.data
       end
       it "return updated order" do
@@ -97,6 +96,8 @@ RSpec.describe Order::UpdateOrder do
         expect(@updated_order.return_book_code).to eql return_book_code
         expect(@updated_order.return_web_price_net).to eql return_web_price_net
         expect(@updated_order.return_total).to eql return_total
+        expect(@updated_order.total_price).to eql @calculate_price_order.call
+        
         expect(@updated_order.passengers[0].name).to eql @update_params[:passengers_attributes][0][:name]
       end
       it "not update adult or child or infant number" do
@@ -120,7 +121,8 @@ RSpec.describe Order::UpdateOrder do
         }
         contact_info = double(Order::ContactInfo)                                            
         get_customer_order = double(Order::GetCustomerOrder)
-        update_order = Order::UpdateOrder.new(@update_params, get_customer_order, contact_info)
+        calculate_price_order = double(Order::CreateOrder)
+        update_order = Order::UpdateOrder.new(@update_params, get_customer_order, contact_info, calculate_price_order)
         @updated_order = update_order.call
       end
       it "return an error message" do

@@ -1,8 +1,9 @@
 class Order::UpdateOrder
-  def initialize(update_params, get_customer_order, contact_info)
+  def initialize(update_params, get_customer_order, contact_info, calculate_price_order)
     @update_params = update_params
     @get_customer_order = get_customer_order
     @contact_info = contact_info
+    @calculate_price_order = calculate_price_order
   end
   
   def call
@@ -31,6 +32,7 @@ class Order::UpdateOrder
         order.return_airline_short_name = order.return_airline.short_name
         order.return_airline_type = order.return_airline.category
       end
+      order.total_price = @calculate_price_order.call
       if order.save
         @response = Response::Success.new(data: order)
       else

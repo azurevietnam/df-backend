@@ -1,15 +1,17 @@
 class Order::CreateOrder
-  def initialize(create_params, get_customer_order, contact_info, order_no_generator)
+  def initialize(create_params, get_customer_order, contact_info, order_no_generator, calculate_price_order)
     @create_params = create_params
     @get_customer_order = get_customer_order
     @contact_info = contact_info
     @order_no_generator = order_no_generator
+    @calculate_price_order = calculate_price_order
   end
   
   def call
     begin
       order = Order.new(@create_params)
       order.order_number = @order_no_generator.call
+      order.status = Order.STATUSes[:NEW]
       order.customer = @get_customer_order.call(@create_params[:customer_id], @contact_info)
       order.ori_place = Place.find(@create_params[:ori_place_id])
       order.des_place = Place.find(@create_params[:des_place_id])
@@ -31,6 +33,7 @@ class Order::CreateOrder
         order.return_airline_short_name = order.return_airline.short_name
         order.return_airline_type = order.return_airline.category
       end
+      order.total_price = @calculate_price_order.call
       if order.save
         @response = Response::Success.new(data: order)
       else

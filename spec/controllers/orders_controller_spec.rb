@@ -37,7 +37,6 @@ RSpec.describe OrdersController, type: :controller do
       return_book_code= "REJ24F"
       return_web_price_net= 500000
       return_total= 1400000
-      total_price = depart_total + return_total
       contact_note = "Pay later"
       admin_note = "This is trusted customer"
 
@@ -71,40 +70,46 @@ RSpec.describe OrdersController, type: :controller do
           return_book_code: return_book_code,
           return_web_price_net: return_web_price_net,
           return_total: return_total,
-          total_price: total_price,
           contact_note: contact_note,
           admin_note: admin_note,
           passengers_attributes: [
             {no: 1, name: FFaker::Name.name, gender: Customer.GENDERs[:FEMALE], category: Passenger.CATEGORies[:ADULT]}
           ]
         }
-
+        @calculate_price_order = Order::CalculatePriceOrder.new({round_type: round_type, depart_total: depart_total, return_total: return_total})
         @order_response = json_response
       end
 
-      it "renders correct order response" do        
+      it "renders correct order with contact info" do
         expect(@order_response[:contact_name]).to eql contact_name
         expect(@order_response[:contact_phone]).to eql contact_phone
         expect(@order_response[:contact_email]).to eql contact_email
         expect(@order_response[:contact_gender]).to eql contact_gender
+      end
+      
+      it "renders correct order with flight info" do
+        expect(@order_response[:status]).to eql Order.STATUSes[:NEW]
         expect(@order_response[:round_type]).to eql round_type
         expect(@order_response[:depart_flight_code]).to eql depart_flight_code
         expect(@order_response[:depart_date].to_s).to eql depart_date.to_s
         expect(extract_time_string_from_String(@order_response[:depart_from_time])).to eql extract_time_string_from_Time(depart_from_time)
         expect(extract_time_string_from_String(@order_response[:depart_to_time])).to eql extract_time_string_from_Time(depart_to_time)
         expect(@order_response[:depart_book_code]).to eql depart_book_code
-        expect(@order_response[:depart_web_price_net]).to eql depart_web_price_net
-        expect(@order_response[:depart_total]).to eql depart_total
         expect(@order_response[:return_flight_code]).to eql return_flight_code
         expect(@order_response[:return_date].to_s).to eql return_date.to_s
         expect(extract_time_string_from_String(@order_response[:return_from_time])).to eql extract_time_string_from_Time(return_from_time)
         expect(extract_time_string_from_String(@order_response[:return_to_time])).to eql extract_time_string_from_Time(return_to_time)
         expect(@order_response[:return_book_code]).to eql return_book_code
-        expect(@order_response[:return_web_price_net]).to eql return_web_price_net
-        expect(@order_response[:return_total]).to eql return_total
-        expect(@order_response[:total_price]).to eql total_price
         expect(@order_response[:contact_note]).to eql contact_note
         expect(@order_response[:admin_note]).to eql admin_note
+      end
+      
+      it "renders correct order with price" do
+        expect(@order_response[:depart_web_price_net]).to eql depart_web_price_net
+        expect(@order_response[:depart_total]).to eql depart_total
+        expect(@order_response[:return_web_price_net]).to eql return_web_price_net
+        expect(@order_response[:return_total]).to eql return_total
+        expect(@order_response[:total_price]).to eql @calculate_price_order.call
       end
 
       it { should respond_with :created }

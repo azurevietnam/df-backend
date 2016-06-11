@@ -20,6 +20,8 @@ gem 'pg'
 
 gem 'validates_email_format_of'
 
+gem 'httparty', '~> 0.13.7'
+
 group :test do
   gem 'shoulda-matchers'
   gem "database_cleaner"
