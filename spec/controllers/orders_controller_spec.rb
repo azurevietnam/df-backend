@@ -273,6 +273,32 @@ RSpec.describe OrdersController, type: :controller do
       end
     end
   end
+  
+  describe "PUT #update" do
+    context "when update order round trip successfully" do
+      before(:each) do
+        @original_order = FactoryGirl.create(:order, :round_trip, adult: 1, child: 0, infant: 0)
+        @passengers = @original_order.passengers
+        @ori_place = FactoryGirl.create(:place_bmt)
+        @des_place = FactoryGirl.create(:place_sgn)
+        @depart_airline = FactoryGirl.create(:airline_vna)
+        @return_airline = FactoryGirl.create(:airline_jet)
+        put :update, id: @original_order, order: {
+          order_id: @original_order.id,
+          ori_place_id: @ori_place.id, 
+          des_place_id: @des_place.id,
+          depart_airline_id: @depart_airline.id,
+          return_airline_id: @return_airline.id,
+          passengers_attributes: [
+            {id: @passengers[0].id, no: 1, name: FFaker::Name.name, gender: Customer.GENDERs[:FEMALE], category: Passenger.CATEGORies[:ADULT]}
+          ]
+        }
+        @order_response = json_response
+      end
+      
+      it { should respond_with :ok }
+    end
+  end
 
   private
     def extract_time_string_from_Time(time)

@@ -41,6 +41,7 @@ class Order::UpdateOrder
     rescue ActiveRecord::RecordNotFound => ex
       @response = Response::Error.new(error_type: ex, message: ex.message)
     end
+    @response
   end
   
   private

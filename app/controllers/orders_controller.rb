@@ -20,7 +20,17 @@ class OrdersController < ApplicationController
   end
   
   def update
-    
+    contact_info = Order::ContactInfo.new(update_params[:contact_phone], update_params[:contact_email], 
+                                            update_params[:contact_name], update_params[:contact_gender])
+    get_customer_order = Order::GetCustomerOrder.new
+    calculate_price_order = Order::CalculatePriceOrder.new({round_type: update_params[:round_type].to_i, depart_total: update_params[:depart_total].to_i, return_total: update_params[:return_total].to_i})
+    update_order = Order::UpdateOrder.new(update_params, get_customer_order, contact_info, calculate_price_order)
+    response = update_order.call
+    if response.success?
+      render json: response.data, status: :ok
+    else
+      render json: {errors: response.message}, status: :unprocessable_entity
+    end
   end
   
   def find
@@ -42,7 +52,7 @@ class OrdersController < ApplicationController
         )
     end
     def update_params
-      params.require(:order).permit(:contact_name, :contact_phone, :contact_email, :contact_gender, 
+      params.require(:order).permit(:order_id, :contact_name, :contact_phone, :contact_email, :contact_gender, 
         :ori_place_id, :des_place_id,
         :depart_airline_id, :depart_flight_code, :depart_date, :depart_from_time, :depart_to_time, :depart_book_code,
         :depart_web_price_net, :depart_total,
