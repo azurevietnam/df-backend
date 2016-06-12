@@ -13,13 +13,4 @@ RSpec.describe Customer, type: :model do
   it { should_not allow_values('03fsaff934').for(:phone)}
   it { should_not allow_values('12345').for(:phone)}
   it { should allow_values('01224410620').for(:phone)}
-  
-  it "return correct title Vietnamese for male" do
-    person = FactoryGirl.build(:customer, :male)
-    expect(Passenger::Title.show(person.gender, Passenger.CATEGORies[:ADULT])).to eq "Ông"
-  end
-  it "return correct title Vietnamese for female" do
-    person = FactoryGirl.build(:customer, :female)
-    expect(Passenger::Title.show(person.gender, Passenger.CATEGORies[:ADULT])).to eq "Bà"
-  end
 end

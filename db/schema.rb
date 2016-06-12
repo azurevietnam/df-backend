@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160605080240) do
+ActiveRecord::Schema.define(version: 20160612061621) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -116,6 +116,20 @@ ActiveRecord::Schema.define(version: 20160605080240) do
     t.boolean  "is_domestic"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "sms_messages", force: :cascade do |t|
+    t.integer  "order_id"
+    t.integer  "type"
+    t.string   "content"
+    t.string   "to_phone"
+    t.integer  "trans_id"
+    t.integer  "total_sms"
+    t.integer  "total_price"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "status"
+    t.string   "code"
   end
 
 end

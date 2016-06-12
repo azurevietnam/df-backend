@@ -1,6 +1,12 @@
 class Sms::SmsDraft
   def self.show
-    "Hello Dona"
+    file = File.join(Rails.root, 'app', 'helper', 'sms', 'template.txt')
+    order_number = "12345"
+    data = File.read(file)
+    byebug
+    data.gsub("\\#", "#")
+    byebug
+    data
   end
   
   def self.check_account

@@ -10,6 +10,7 @@ class Order < ActiveRecord::Base
   belongs_to :depart_airline, class_name: 'Airline', foreign_key: 'depart_airline_id'
   belongs_to :return_airline, class_name: 'Airline', foreign_key: 'return_airline_id'
   has_many :passengers
+  has_many :sms_messages
   accepts_nested_attributes_for :passengers
   accepts_nested_attributes_for :ori_place
   accepts_nested_attributes_for :des_place

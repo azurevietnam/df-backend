@@ -9,7 +9,7 @@ RSpec.describe CurrencyHelper do
     end
     context "when format correct with user-defined unit" do
       it "return correct currency format" do
-        expect(CurrencyHelper.format(200000, "d")).to eq "200,000 d"
+        expect(CurrencyHelper.format(200000, "d")).to eq "200,000d"
       end
     end
     context "when rounding with float number correctly" do
