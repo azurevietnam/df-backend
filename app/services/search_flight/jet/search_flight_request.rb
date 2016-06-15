@@ -5,13 +5,14 @@ class SearchFlight::Jet::SearchFlightRequest
   end
 
   def call
-    response = HTTParty.post(@builder.url,
+    options = {
       body: @builder.body,
       headers: {
               "Accept-Encoding" => "gzip, deflate",
               "Content-type" => "application/x-www-form-urlencoded"
               }
-    )
+    }
+    response = @http_service.post(@builder.url, options)
     response
   end
 end
