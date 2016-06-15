@@ -22,6 +22,8 @@ gem 'validates_email_format_of'
 
 gem 'httparty', '~> 0.13.7'
 
+gem 'httparty_with_cookies'
+
 group :test do
   gem 'shoulda-matchers'
   gem "database_cleaner"

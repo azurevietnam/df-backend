@@ -8,7 +8,7 @@ class Sms::SmsDraft
     byebug
     data
   end
-  
+
   def self.check_account
     auth = {
       username: "gd1baqlyEtypy6XzOMvUXTzihV0cC3HK",
@@ -18,18 +18,18 @@ class Sms::SmsDraft
     response = HTTParty.get("http://api.speedsms.vn/index.php/user/info", options)
     response
   end
-  
+
   def self.send_sms
     auth = {
       username: "gd1baqlyEtypy6XzOMvUXTzihV0cC3HK",
       password: ""
     }
-    options = { 
+    options = {
       basic_auth: auth,
       body: {
-        "to" => ["0933554440"],
-        "content" => "Xin chao Dona",
-        "sms_tye" => "2",
+        "to"        => ["0933554440"],
+        "content"   => "Xin chao Dona",
+        "sms_tye"   => "2",
         "brandname" => ""
       }.to_json,
       headers: {

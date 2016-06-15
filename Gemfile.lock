@@ -66,6 +66,8 @@ GEM
     httparty (0.13.7)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
+    httparty_with_cookies (0.2.1)
+      httparty
     i18n (0.7.0)
     json (1.8.3)
     loofah (2.0.3)
@@ -174,6 +176,7 @@ DEPENDENCIES
   factory_girl_rails
   ffaker
   httparty (~> 0.13.7)
+  httparty_with_cookies
   pg
   rails (= 4.2.4)
   rails-api
