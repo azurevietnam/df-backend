@@ -178,7 +178,7 @@ DEPENDENCIES
   rails (= 4.2.4)
   rails-api
   rspec-rails
-  rubocop
+  rubocop (~> 0.40.0)
   shoulda-matchers
   spring
   validates_email_format_of

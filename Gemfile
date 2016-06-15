@@ -4,7 +4,7 @@ ruby "2.2.2"
 
 gem 'rails', '4.2.4'
 
-gem "rubocop"
+gem 'rubocop', '~> 0.40.0', require: false
 
 gem 'rails-api'
 
