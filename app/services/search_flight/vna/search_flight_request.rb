@@ -3,10 +3,9 @@ class SearchFlight::Vna::SearchFlightRequest
     @builder = builder
     @http_service = http_service
   end
-  
+
   def call
-    options = {}
-    response = @http_service.get(@builder.get_first_url, options)
+    response = @http_service.get(@builder.url, {})
     response
   end
 end

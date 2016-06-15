@@ -9,7 +9,7 @@ class SearchFlight::Jet::SearchFlightBuilder
     url << '/Search.aspx?culture=vi-VN'
   end
 
-  def body
+  def options
     if Order::OrderRoundType.is_round_trip(@params.round_type)
       body = {
         "search-origin01"                                                                           => '',
@@ -68,7 +68,15 @@ class SearchFlight::Jet::SearchFlightBuilder
         "ControlGroupSearchView$AvailabilitySearchInputSearchView$DropDownListCurrency"             => 'VND'
       }
     end
-    body
+
+    options = {
+      body: body,
+      headers: {
+              "Accept-Encoding" => "gzip, deflate",
+              "Content-type" => "application/x-www-form-urlencoded"
+              }
+    }
+    options
   end
 
   private

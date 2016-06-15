@@ -9,7 +9,7 @@ class SearchFlight::Vje::SearchFlightBuilder
     url << '/ameliapost.aspx?lang=vi'
   end
 
-  def body_first
+  def options_first
     if Order::OrderRoundType.is_round_trip(@params.round_type)
       body = {
             'txtPromoCode'      => '',
@@ -51,10 +51,18 @@ class SearchFlight::Vje::SearchFlightBuilder
             'lstResCurrency'    => 'VND'
         }
     end
-    body
+    options = {
+        body: body,
+        headers: {
+                'Host' => 'book.vietjetair.com',
+                'Accept-Encoding' => 'gzip, deflate',
+                'Content-Type' => 'application/x-www-form-urlencoded'
+                }
+      }
+    options
   end
 
-  def body_second
+  def options_second(previous_response)
     if Order::OrderRoundType.is_round_trip(@params.round_type)
       body = {
         'txtPromoCode'         => '',
@@ -100,7 +108,15 @@ class SearchFlight::Vje::SearchFlightBuilder
             'lstResCurrency'       => 'VND'
         }
     end
-    body
+    options = {
+        body: body,
+        headers: {
+                'Accept-Encoding' => 'gzip, deflate',
+                'Cookie' => previous_response.headers["set-cookie"],
+                'Content-Type' => 'application/x-www-form-urlencoded'
+            }
+    }
+    options
   end
 
   private

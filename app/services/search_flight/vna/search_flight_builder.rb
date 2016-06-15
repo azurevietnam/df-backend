@@ -4,7 +4,7 @@ class SearchFlight::Vna::SearchFlightBuilder
     @params = params
   end
 
-  def get_first_url
+  def url
     url = String.new(@uri)
     url << '/SSW2010/B3QE/webqtrip.html?searchType=NORMAL'
     url << '&journeySpan=' << get_round_type(@params.round_type)
