@@ -14,7 +14,7 @@ RSpec.describe SearchFlight::Vje::Request do
   #     uri           = 'https://book.vietjetair.com'
   #     params        = SearchFlight::SearchParams
   #                     .new(ori_code, des_code, round_type, depart_date,
-  #                     return_date, adult.to_s, child.to_s, infant.to_s)
+  #                     return_date, adult, child, infant)
   #     http_service  = Http::HttpFactory.new_http
   #     search_builder  = SearchFlight::Vje::OptionBuilder
   #                     .new(uri, params)
@@ -48,7 +48,7 @@ RSpec.describe SearchFlight::Vje::Request do
   #     uri           = 'https://book.vietjetair.com'
   #     params        = SearchFlight::SearchParams
   #                     .new(ori_code, des_code, round_type, depart_date,
-  #                     return_date, adult.to_s, child.to_s, infant.to_s)
+  #                     return_date, adult, child, infant)
   #     http_service  = Http::HttpFactory.new_http
   #     search_builder  = SearchFlight::Vje::OptionBuilder
   #                     .new(uri, params)

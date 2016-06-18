@@ -20,12 +20,19 @@ class SearchFlight::Vna::ParseUnit < SearchFlight::ParseUnit
     return !number_stops.nil? && number_stops.text.to_i == 0
   end
 
+  def airline_type
+    Airline.CATEGORies[:VNAIRLINE]
+  end
+
   private
     def cheapest_price(flight_row)
       price = nil
       prices = flight_row.css('.prices-amount')
       if prices.count > 0
-        price = prices.last.text.gsub(/[^\d]/, '')
+        price_str = prices.last.text.gsub(/[^\d]/, '')
+        if !price_str.empty?
+          price = price_str.to_i
+        end
       end
       price
     end

@@ -19,13 +19,17 @@ class SearchFlight::Vje::ParseUnit < SearchFlight::ParseUnit
     true
   end
 
+  def airline_type
+    Airline.CATEGORies[:VIETJET]
+  end
+
   private
     def cheapest_price(flight_row)
       price_result = nil
       prices = flight_row.css('.FaresGrid td')
       prices.each do |price|
         if !price.text.gsub(/[^\d]/, '').empty?
-          price_result = price.text.gsub(/[^\d]/, '')
+          price_result = price.text.gsub(/[^\d]/, '').to_i
           break
         end
       end

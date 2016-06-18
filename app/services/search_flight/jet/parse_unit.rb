@@ -19,6 +19,10 @@ class SearchFlight::Jet::ParseUnit < SearchFlight::ParseUnit
     return !flight_row.at_css('.stops').nil? && flight_row.at_css('.stops').text == "Bay thẳng"
   end
 
+  def airline_type
+    Airline.CATEGORies[:JETSTAR]
+  end
+
   private
     def extract_flight_code(flight_code)
       flight_code.gsub(/\s+/, '')
@@ -27,12 +31,15 @@ class SearchFlight::Jet::ParseUnit < SearchFlight::ParseUnit
       time.match(/\d{1,2}:\d{1,2}/)[0]
     end
     def cheapest_price(flight_row)
-      price_result = nil
-      price_result =  price_starter(flight_row)
-      if price_result.nil?
-        price_result =  price_business(flight_row)
+      price = nil
+      price_str =  price_starter(flight_row)
+      if price_str.nil?
+        price_str =  price_business(flight_row)
       end
-      price_result
+      if !price_str.nil? && !price_str.empty?
+        price = price_str.to_i
+      end
+      price
     end
     def price_starter(flight_row)
       price_result = nil

@@ -6,6 +6,6 @@ class SearchFlight::Vna::Fare
   end
 
   def calculate
-    @flight_container = @fare_flights.calculate
+    @flight_container = @fare_flights.call
   end
 end

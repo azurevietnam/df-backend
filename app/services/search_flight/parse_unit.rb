@@ -19,6 +19,10 @@ class SearchFlight::ParseUnit
     raise NotImplementedError
   end
 
+  def airline_type
+    raise NotImplementedError
+  end
+
   def flight(flight_row)
     raise NotImplementedError
   end

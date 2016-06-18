@@ -11,9 +11,9 @@ RSpec.describe SearchFlight::ParseFlight do
       it 'format correct type of each information flight' do
         flights = parse_flight.flights('#dtcontainer-both tbody tr')
         flight = flights[0]
+        expect(flight.airline_type).to eq(Airline.CATEGORies[:VNAIRLINE])
         expect(flight.from_time).to match(/\d{1,2}:\d{1,2}/)
         expect(flight.to_time).to match(/\d{1,2}:\d{1,2}/)
-        expect(flight.price_web).to match(/^\d+$/)
       end
     end
 
@@ -26,9 +26,9 @@ RSpec.describe SearchFlight::ParseFlight do
       it 'format correct type of each information flight' do
         flights = parse_flight.flights('.FlightsGrid tr[id*=gridTravel]')
         flight = flights[0]
+        expect(flight.airline_type).to eq(Airline.CATEGORies[:VIETJET])
         expect(flight.from_time).to match(/\d{1,2}:\d{1,2}/)
         expect(flight.to_time).to match(/\d{1,2}:\d{1,2}/)
-        expect(flight.price_web).to match(/^\d+$/)
       end
     end
 
@@ -41,9 +41,9 @@ RSpec.describe SearchFlight::ParseFlight do
       it 'format correct type of each information flight' do
         flights = parse_flight.flights('div.fares table.domestic tbody tr:not(.business-options):not(.starter-options)')
         flight = flights[0]
+        expect(flight.airline_type).to eq(Airline.CATEGORies[:JETSTAR])
         expect(flight.from_time).to match(/\d{1,2}:\d{1,2}/)
         expect(flight.to_time).to match(/\d{1,2}:\d{1,2}/)
-        expect(flight.price_web).to match(/^\d+$/)
       end
     end
   end

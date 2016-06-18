@@ -12,15 +12,13 @@ RSpec.describe SearchFlight::Jet::Request do
     #   child               = 0
     #   infant              = 0
     #   uri                 = 'http://booknow.jetstar.com'
-    #   params              = SearchFlight::SearchParams
-    #                         .new(ori_code, des_code, round_type, depart_date,
-    #                         return_date, adult.to_s, child.to_s, infant.to_s)
+    #   params              = SearchFlight::SearchParams.new(ori_code, des_code, round_type, depart_date, return_date, adult, child, infant)
     #   http_service        = Http::HttpService.new
-    #   search_builder      = SearchFlight::Jet::OptionBuilder
-    #                         .new(uri, params)
-    #   search_flight_req   = SearchFlight::Jet::Request
-    #                         .new(search_builder, http_service)
-    #   response_data            = search_flight_req.call.data
+    #   option_builder      = SearchFlight::Jet::OptionBuilder.new(uri, params)
+    #   # search_flight_req   = SearchFlight::Jet::Request.new(option_builder, http_service)
+    #   # response_data       = search_flight_req.call
+    #   byebug
+    #   response_data = Http::SearchFlightService.search(option_builder.url, option_builder.options)
 
     #   it 'return content that includes some verified keywords' do
     #     # File.open('/Users/Dona/Desktop/untitled.html', 'w') {|f| f.write(response_data) }
@@ -49,13 +47,13 @@ RSpec.describe SearchFlight::Jet::Request do
     #   uri                 = 'http://booknow.jetstar.com'
     #   params              = SearchFlight::SearchParams
     #                         .new(ori_code, des_code, round_type, depart_date,
-    #                         return_date, adult.to_s, child.to_s, infant.to_s)
+    #                         return_date, adult, child, infant)
     #   http_service        = Http::HttpService.new
-    #   search_builder      = SearchFlight::Jet::OptionBuilder
+    #   option_builder      = SearchFlight::Jet::OptionBuilder
     #                         .new(uri, params)
     #   search_flight_req   = SearchFlight::Jet::Request
-    #                         .new(search_builder, http_service)
-    #   response_data            = search_flight_req.call.data
+    #                         .new(option_builder, http_service)
+    #   response_data            = search_flight_req.call
 
     #   it 'return content that includes some verified keywords' do
     #     File.open('/Users/Dona/Desktop/untitled.html', 'w') {|f| f.write(response_data) }

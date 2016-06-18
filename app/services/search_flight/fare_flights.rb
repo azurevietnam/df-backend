@@ -4,11 +4,11 @@ class SearchFlight::FareFlights
     @fare_flight = SearchFlight::FareFlight.new(fare_formula)
   end
 
-  def calculate
+  def call
     if @flight_container.depart_flights.count > 0
       calculate(@flight_container.depart_flights)
     end
-    if @flight_container.return_flights.count > 0
+    if !@flight_container.return_flights.nil? && @flight_container.return_flights.count > 0
       calculate(@flight_container.return_flights)
     end
     @flight_container
@@ -16,7 +16,7 @@ class SearchFlight::FareFlights
 
   def calculate(flights)
     flights.each do |flight|
-      @fare_flight.calculate(flight)
+      @fare_flight.call(flight)
     end
   end
 end
