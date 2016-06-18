@@ -1,4 +1,4 @@
-class SearchFlight::Jet::SearchFlightRequest
+class SearchFlight::Jet::Request
   def initialize(builder, http_service)
     @builder = builder
     @http_service = http_service

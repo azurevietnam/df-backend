@@ -1,4 +1,4 @@
-class SearchFlight::Vna::SearchFlightBuilder
+class SearchFlight::Vna::OptionBuilder
   def initialize(uri, params)
     @uri = uri
     @params = params

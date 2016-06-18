@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe SearchFlight::Vje::SearchFlightRequest do
-  # describe 'send search ticket request to Vietjet Air website' do
+RSpec.describe SearchFlight::Vna::Request do
+  # describe 'send search ticket request to Vietnam airline website' do
   #   context 'search ticket round trip successfully', http: true do
   #     ori_code      = 'SGN'
   #     des_code      = 'HAN'
@@ -11,14 +11,14 @@ RSpec.describe SearchFlight::Vje::SearchFlightRequest do
   #     adult         = 1
   #     child         = 0
   #     infant        = 0
-  #     uri           = 'https://book.vietjetair.com'
+  #     uri           = 'https://wl-prod.sabresonicweb.com'
   #     params        = SearchFlight::SearchParams
   #                     .new(ori_code, des_code, round_type, depart_date,
   #                     return_date, adult.to_s, child.to_s, infant.to_s)
   #     http_service  = Http::HttpFactory.new_http
-  #     search_builder  = SearchFlight::Vje::SearchFlightBuilder
+  #     search_builder  = SearchFlight::Vna::OptionBuilder
   #                     .new(uri, params)
-  #     search_flight_req  = SearchFlight::Vje::SearchFlightRequest
+  #     search_flight_req  = SearchFlight::Vna::Request
   #                     .new(search_builder, http_service)
   #     response_data      = search_flight_req.call.data
 
@@ -30,12 +30,11 @@ RSpec.describe SearchFlight::Vje::SearchFlightRequest do
   #       # File.open('/Users/Dona/Desktop/untitled.html', 'w') {|f| f.write(response_data) }
   #       expect(response_data).to include ori_code
   #       expect(response_data).to include des_code
-  #       expect(response_data).to include 'Lựa chọn chuyến đi'
-  #       expect(response_data).to include 'Khởi hành'
-  #       expect(response_data).to include 'Trở về'
+  #       expect(response_data).to include 'Bảng chi tiết chuyến bay'
+  #       expect(response_data).to include 'Lựa chọn CHUYẾN BAY CHIỀU ĐI'
+  #       expect(response_data).to include 'Lựa chọn CHUYẾN BAY CHIỀU VỀ'
   #     end
   #   end
-
   #   context 'search ticket one way successfully', http: true do
   #     ori_code      = 'SGN'
   #     des_code      = 'HAN'
@@ -45,14 +44,14 @@ RSpec.describe SearchFlight::Vje::SearchFlightRequest do
   #     adult         = 1
   #     child         = 0
   #     infant        = 0
-  #     uri           = 'https://book.vietjetair.com'
+  #     uri           = 'https://wl-prod.sabresonicweb.com'
   #     params        = SearchFlight::SearchParams
   #                     .new(ori_code, des_code, round_type, depart_date,
   #                     return_date, adult.to_s, child.to_s, infant.to_s)
   #     http_service  = Http::HttpFactory.new_http
-  #     search_builder  = SearchFlight::Vje::SearchFlightBuilder
+  #     search_builder  = SearchFlight::Vna::OptionBuilder
   #                     .new(uri, params)
-  #     search_flight_req  = SearchFlight::Vje::SearchFlightRequest
+  #     search_flight_req  = SearchFlight::Vna::Request
   #                     .new(search_builder, http_service)
   #     response_data      = search_flight_req.call.data
 
@@ -64,9 +63,9 @@ RSpec.describe SearchFlight::Vje::SearchFlightRequest do
   #       # File.open('/Users/Dona/Desktop/untitled.html', 'w') {|f| f.write(response_data) }
   #       expect(response_data).to include ori_code
   #       expect(response_data).to include des_code
-  #       expect(response_data).to include 'Lựa chọn chuyến đi'
-  #       expect(response_data).to include 'Khởi hành'
-  #       expect(response_data).not_to include 'Trở về'
+  #       expect(response_data).to include 'Bảng chi tiết chuyến bay'
+  #       expect(response_data).to include 'Lựa chọn CHUYẾN BAY CHIỀU ĐI'
+  #       expect(response_data).not_to include 'Lựa chọn CHUYẾN BAY CHIỀU VỀ'
   #     end
   #   end
   # end

@@ -1,4 +1,4 @@
-class SearchFlight::Jet::SearchFlightBuilder
+class SearchFlight::Jet::OptionBuilder
   def initialize(uri, params)
     @uri = uri
     @params = params
