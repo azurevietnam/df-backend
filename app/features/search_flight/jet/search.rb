@@ -15,7 +15,7 @@ class SearchFlight::Jet::Search
 
   private
     def get_html_content
-      response = @request.call
+      response = @request.call.data
       response
     end
     def parse_content(html_content, search_params)

@@ -27,6 +27,8 @@ gem 'httparty_with_cookies'
 group :test do
   gem 'shoulda-matchers'
   gem "database_cleaner"
+  gem 'webmock'
+  gem 'vcr'
 end
 
 group :development, :test do

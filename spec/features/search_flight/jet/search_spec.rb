@@ -10,18 +10,22 @@ RSpec.describe SearchFlight::Jet::Search do
 
   describe 'search flights for vietnam airline' do
     context 'search one way successfully' do
-      round_type       = Order.ROUND_TYPEs[:ONE_WAY]
-      return_date      = nil
-      params           = SearchFlight::SearchParams.new(ori_code, des_code, round_type, depart_date, return_date, adult, child, infant)
-      search           = SearchFlight::Jet::Search.new(params)
-      flight_container = search.call
+      before(:each) do
+        round_type       = Order.ROUND_TYPEs[:ONE_WAY]
+        return_date      = nil
+        params           = SearchFlight::SearchParams.new(ori_code, des_code, round_type, depart_date, return_date, adult, child, infant)
+        search           = SearchFlight::Jet::Search.new(params)
+        VCR.use_cassette('search_flight/jet/one_way') do
+          @flight_container = search.call
+        end
+      end
 
       it 'return depart flights only' do
-        expect(flight_container.return_flights).to be_nil
+        expect(@flight_container.return_flights).to be_nil
       end
       it 'return correct value type of flight when have depart flights' do
-        if !flight_container.depart_flights.nil? && flight_container.depart_flights.count > 0
-          flight = flight_container.depart_flights[0]
+        if !@flight_container.depart_flights.nil? && @flight_container.depart_flights.count > 0
+          flight = @flight_container.depart_flights[0]
           expect(flight.airline_type).to eq(Airline.CATEGORies[:JETSTAR])
           expect(flight.from_time).to match(/\d{1,2}:\d{1,2}/)
           expect(flight.to_time).to match(/\d{1,2}:\d{1,2}/)
